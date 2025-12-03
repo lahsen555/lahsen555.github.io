@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
 
-    <!-- 1. The Amiri Font -->
+    <!-- TRICK 1: Pre-connect to the servers to save time -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- TRICK 2: Use display=swap so text appears BEFORE the font loads -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- 2. MathJax for LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- TRICK 3: Optimized MathJax (Async) -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
     <style>
         body {
-            font-family: 'Amiri', serif;
+            /* Fallback to 'Times New Roman' until Amiri loads */
+            font-family: 'Amiri', 'Times New Roman', serif;
             background-color: #fdfdfd;
             color: #111;
             line-height: 1.8;
@@ -26,10 +40,13 @@
             font-size: 22px;
         }
         
-        /* Make English words inside Arabic text look normal */
+        /* Loading animation for math */
+        mjx-container[jax="CHTML"][display="true"] {
+             margin: 1em 0;
+        }
+
         p, li { text-align: justify; }
         
-        /* Code blocks need to be LTR even in an RTL site */
         pre, code {
             direction: ltr;
             text-align: left;
@@ -53,7 +70,6 @@
     </header>
 
     <article>
-        <!-- This is where Jekyll will paste your post content -->
         {{ content }}
     </article>
 
