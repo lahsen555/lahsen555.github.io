@@ -18,15 +18,15 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: مدونتي العربية
+title: التقنية العربية
 email: hichamlahcn@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  مدونة تقنية للكتابة الأكاديمية والبرمجة.
+  مدونة تقنية للكتابة الأكاديمية.
 baseurl: "" 
 url: "" 
 theme: minima
-plugins:
-  - jekyll-feed
+#plugins:
+#  - jekyll-feed
 
 
 
