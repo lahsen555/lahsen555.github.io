@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "تاريخ الماكينة"
+title:  "تاريخ "
 date:   2024-12-03 12:00:00 +0000
 categories: jekyll update
 ---
