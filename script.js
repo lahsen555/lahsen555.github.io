@@ -1,13 +1,11 @@
 const posts = [
   {
     title: "Welcome to my blog",
-    // date: "2026-10-31",
     description: "Why I started writing here, and what you can expect to find.",
     url: "posts/welcome.html",
   },
   {
     title: "Learning in public",
-    // date: "2026-10-30",
     description:
       "A few thoughts on documenting projects and sharing what I learn.",
     url: "posts/learning.html",
