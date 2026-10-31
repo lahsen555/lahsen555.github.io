@@ -3,7 +3,6 @@ const posts = [
     title: "Welcome to my blog",
     date: "2026-10-31",
     description: "Why I started writing here, and what you can expect to find.",
-    tags: ["Personal", "Notes"],
     url: "posts/welcome.html",
   },
   {
@@ -11,7 +10,6 @@ const posts = [
     date: "2026-10-30",
     description:
       "A few thoughts on documenting projects and sharing what I learn.",
-    tags: ["Development", "Learning"],
     url: "posts/learning.html",
   },
 ];
@@ -20,7 +18,7 @@ if (root)
   root.innerHTML = posts
     .map(
       (p) =>
-        `<article class="post"><div class="meta">${p.date}</div><h3><a href="${p.url}">${p.title} ↗</a></h3><p>${p.description}</p><div>${p.tags.map((t) => `<span class="tag">#${t}</span>`).join("")}</div></article>`,
+        `<article class="post"><div class="meta">${p.date}</div><h3><a href="${p.url}">${p.title} ↗</a></h3><p>${p.description}</p></article>`,
     )
     .join("");
 const year = document.getElementById("year");
